@@ -3,27 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Pierre Papier Ciseaux</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Pierre Papier Ciseaux ✊📄✂️</h1>
+    <div class="container">
 
-    <div class="boutons">
+        <h1>Pierre Papier Ciseaux ✊📄✂️</h1>
 
-        <button onclick="jouer('pierre')">✊ Pierre</button>
+        <div class="scores">
 
-        <button onclick="jouer('papier')">📄 Papier</button>
+            <div class="box">
+                <h2>Score</h2>
+                <p id="score">0</p>
+            </div>
 
-        <button onclick="jouer('ciseaux')">✂️ Ciseaux</button>
+            <div class="box">
+                <h2>Manches</h2>
+                <p id="manches">0</p>
+            </div>
+
+        </div>
+
+        <div class="boutons">
+
+            <button onclick="jouer('pierre')">
+                ✊ Pierre
+            </button>
+
+            <button onclick="jouer('papier')">
+                📄 Papier
+            </button>
+
+            <button onclick="jouer('ciseaux')">
+                ✂️ Ciseaux
+            </button>
+
+        </div>
+
+        <h2 id="resultat">
+            Choisis une option
+        </h2>
+
+        <div id="choix">
+            <p>Toi : <span id="joueurChoix">-</span></p>
+            <p>Ordinateur : <span id="ordiChoix">-</span></p>
+        </div>
 
     </div>
-
-    <h2 id="resultat">Choisis une option</h2>
-
-    <p id="score">Score : 0</p>
 
     <script src="script.js"></script>
 
 </body>
 </html>
+
+
