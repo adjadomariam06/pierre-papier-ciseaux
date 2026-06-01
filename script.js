@@ -39,7 +39,3 @@ function jouer(choixJoueur){
     document.getElementById("scoreJoueur").textContent = scoreJoueur;
     document.getElementById("scoreOrdi").textContent = scoreOrdi;
 }
-
-
-    
-
