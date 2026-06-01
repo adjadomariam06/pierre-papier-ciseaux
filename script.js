@@ -1,102 +1,45 @@
-const resultat = document.getElementById("resultat");
-const scoreElement = document.getElementById("score");
-const manchesElement = document.getElementById("manches");
-const joueurChoix =
-document.getElementById("joueurChoix");
-const ordiChoix =
-document.getElementById("ordiChoix");
+let scoreJoueur = 0;
+let scoreOrdi = 0;
+let manche = 0;
 
-let score = 0;
+function jouer(choixJoueur){
 
-let manches = 0;
+    const choix = ["Pierre", "Papier", "Ciseaux"];
 
-function jouer(choixJoueur) {
+    let choixOrdi =
+    choix[Math.floor(Math.random() * 3)];
 
-    manches++;
+    manche++;
 
-    manchesElement.textContent = manches;
+    document.getElementById("manche").textContent = manche;
+    document.getElementById("choixJoueur").textContent = choixJoueur;
+    document.getElementById("choixOrdi").textContent = choixOrdi;
 
-    const choixOrdinateur =
-    choixAleatoire();
+    let resultat = "";
 
-    joueurChoix.textContent =
-    choixJoueur;
-
-    ordiChoix.textContent =
-    choixOrdinateur;
-
-    if (choixJoueur === choixOrdinateur) {
-
-        resultat.textContent =
-        "Égalité 🤝";
-
-        resultat.style.color = "white";
+    if(choixJoueur === choixOrdi){
+        resultat = "Égalité";
     }
 
-    else if (
-
-        (choixJoueur === "pierre" &&
-        choixOrdinateur === "ciseaux")
-
-        ||
-
-        (choixJoueur === "papier" &&
-        choixOrdinateur === "pierre")
-
-        ||
-
-        (choixJoueur === "ciseaux" &&
-        choixOrdinateur === "papier")
-
-    ) {
-
-        score++;
-
-        resultat.textContent =
-        "Tu as gagné 🎉";
-
-        resultat.style.color =
-        "lightgreen";
+    else if(
+        (choixJoueur === "Pierre" && choixOrdi === "Ciseaux") ||
+        (choixJoueur === "Papier" && choixOrdi === "Pierre") ||
+        (choixJoueur === "Ciseaux" && choixOrdi === "Papier")
+    ){
+        resultat = "Vous gagnez 🎉 !";
+        scoreJoueur++;
     }
 
-    else {
-
-        resultat.textContent =
-        "Tu as perdu 😢";
-
-        resultat.style.color =
-        "red";
+    else{
+        resultat = "Vous perdez 😣 !";
+        scoreOrdi++;
     }
 
-    scoreElement.textContent = score;
-
-    resultat.style.animation = "none";
-
-    setTimeout(() => {
-
-        resultat.style.animation =
-        "pulse 0.5s";
-
-    }, 10);
-}
-
-function choixAleatoire() {
-
-    const choix = [
-
-        "pierre",
-
-        "papier",
-
-        "ciseaux"
-    ];
-
-    const nombreAleatoire =
-    Math.floor(Math.random() * 3);
-
-    return choix[nombreAleatoire];
+    document.getElementById("resultat").textContent = resultat;
+    document.getElementById("scoreJoueur").textContent = scoreJoueur;
+    document.getElementById("scoreOrdi").textContent = scoreOrdi;
 }
 
 
-       
-   
+    
+
